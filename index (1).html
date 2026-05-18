@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visa Cepat — Urus Visa Tanpa Ribet</title>
+<meta name="description" content="Layanan konsultasi visa untuk WNI. Cukup chat via WhatsApp, dokumen kami bantu urus sampai selesai.">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #2a2a2a;
+  --paper: #faf8f4;
+  --paper-dark: #f0ece4;
+  --accent: #e85d3a;
+  --accent-light: #fff0ec;
+  --green: #5cb85c;
+  --yellow: #f5c842;
+  --yellow-light: #fef9e7;
+  --sketch-border: 2px solid var(--ink);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
+.doodle-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.06; }
+.notebook-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; background-image: repeating-linear-gradient(transparent, transparent 39px, rgba(0,0,0,0.025) 39px, rgba(0,0,0,0.025) 40px); }
+.content { position: relative; z-index: 1; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--paper); border-bottom: var(--sketch-border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: 'Caveat', cursive; font-size: 2rem; font-weight: 700; color: var(--ink); text-decoration: none; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { font-family: 'Patrick Hand', cursive; font-size: 1.15rem; text-decoration: none; color: var(--ink); transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta { background: var(--accent) !important; color: #fff !important; padding: 0.5rem 1.2rem; border-radius: 50px; border: var(--sketch-border); font-family: 'Patrick Hand', cursive !important; font-size: 1.15rem !important; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 3px 3px 0 var(--ink); }
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 4rem; }
+.hero-content { max-width: 800px; }
+.hero h1 { font-family: 'Caveat', cursive; font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+.hero h1 .highlight { color: var(--accent); position: relative; display: inline-block; }
+.hero h1 .highlight::after { content: ''; position: absolute; bottom: 0; left: -4px; right: -4px; height: 12px; background: var(--yellow); z-index: -1; transform: rotate(-1deg); border-radius: 2px; }
+.hero p { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #555; margin-bottom: 2.5rem; line-height: 1.6; }
+.hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; background: #25D366; color: #fff; padding: 1rem 2.5rem; border-radius: 60px; border: var(--sketch-border); font-family: 'Patrick Hand', cursive; font-size: 1.4rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+.hero-cta:hover { transform: translateY(-3px) rotate(-1deg); box-shadow: 4px 4px 0 var(--ink); }
+section { padding: 5rem 2rem; }
+.section-title { font-family: 'Caveat', cursive; font-size: 2.8rem; text-align: center; margin-bottom: 1rem; display: inline-block; }
+.section-subtitle { font-family: 'Patrick Hand', cursive; font-size: 1.3rem; text-align: center; color: #666; margin-bottom: 3rem; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.steps-section { background: var(--paper-dark); border-top: var(--sketch-border); border-bottom: var(--sketch-border); }
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+.step-card { background: var(--paper); border: var(--sketch-border); border-radius: 12px; padding: 2rem; text-align: center; transform: rotate(var(--rot, 0deg)); transition: transform 0.3s, box-shadow 0.3s; }
+.step-card:nth-child(1) { --rot: -1.5deg; } .step-card:nth-child(2) { --rot: 0.8deg; } .step-card:nth-child(3) { --rot: -0.5deg; } .step-card:nth-child(4) { --rot: 1.2deg; }
+.step-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 4px 4px 0 var(--ink); }
+.step-num { font-family: 'Caveat', cursive; font-size: 3rem; font-weight: 700; color: var(--accent); line-height: 1; }
+.step-icon { font-size: 2.5rem; margin: 0.75rem 0; }
+.step-card h3 { font-family: 'Patrick Hand', cursive; font-size: 1.4rem; margin-bottom: 0.5rem; }
+.step-card p { font-size: 0.95rem; color: #555; line-height: 1.5; }
+.countries-section { max-width: 1000px; margin: 0 auto; }
+.country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; max-width: 900px; margin: 0 auto; }
+.country-tag { background: var(--paper); border: var(--sketch-border); border-radius: 8px; padding: 0.75rem 1rem; text-align: center; font-family: 'Patrick Hand', cursive; font-size: 1.1rem; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; cursor: default; }
+.country-tag:hover { transform: translateY(-2px) rotate(-1deg); box-shadow: 3px 3px 0 var(--ink); background: var(--yellow-light); }
+.country-tag .flag { font-size: 1.5rem; display: block; margin-bottom: 0.25rem; }
+.pricing-section { background: var(--paper-dark); border-top: var(--sketch-border); border-bottom: var(--sketch-border); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 950px; margin: 0 auto; }
+.price-card { background: var(--paper); border: var(--sketch-border); border-radius: 16px; padding: 2.5rem 2rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+.price-card:hover { transform: translateY(-4px); box-shadow: 5px 5px 0 var(--ink); }
+.price-card.featured { border-width: 3px; transform: scale(1.04); }
+.price-card.featured::before { content: 'POPULER'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: 0.25rem 1.2rem; border-radius: 20px; font-family: 'Patrick Hand', cursive; font-size: 0.95rem; border: var(--sketch-border); }
+.price-card.featured { position: relative; }
+.price-card h3 { font-family: 'Caveat', cursive; font-size: 2rem; margin-bottom: 0.5rem; }
+.price-amount { font-family: 'Caveat', cursive; font-size: 2.8rem; font-weight: 700; color: var(--accent); margin: 0.5rem 0; }
+.price-amount small { font-size: 1rem; color: #888; }
+.price-features { list-style: none; text-align: left; margin: 1.5rem 0; }
+.price-features li { font-family: 'Patrick Hand', cursive; font-size: 1.1rem; padding: 0.4rem 0; border-bottom: 1px dashed #ddd; }
+.price-features li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+.price-btn { display: inline-block; width: 100%; background: var(--accent); color: #fff; padding: 0.8rem 2rem; border-radius: 50px; border: var(--sketch-border); font-family: 'Patrick Hand', cursive; font-size: 1.2rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+.price-btn:hover { transform: translateY(-2px); box-shadow: 3px 3px 0 var(--ink); }
+.faq-section { max-width: 700px; margin: 0 auto; }
+.faq-item { border: var(--sketch-border); border-radius: 10px; margin-bottom: 1rem; background: var(--paper); overflow: hidden; transition: box-shadow 0.2s; }
+.faq-item:hover { box-shadow: 3px 3px 0 var(--ink); }
+.faq-question { font-family: 'Patrick Hand', cursive; font-size: 1.2rem; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+.faq-question::after { content: '+'; font-size: 1.5rem; transition: transform 0.3s; }
+.faq-item.open .faq-question::after { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; padding: 0 1.5rem; font-size: 0.95rem; color: #555; line-height: 1.6; }
+.faq-item.open .faq-answer { max-height: 300px; padding: 0 1.5rem 1.2rem; }
+.trust-section { text-align: center; }
+.trust-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
+.trust-num { font-family: 'Caveat', cursive; font-size: 3rem; font-weight: 700; color: var(--accent); }
+.trust-label { font-family: 'Patrick Hand', cursive; font-size: 1.1rem; color: #666; }
+.cta-section { text-align: center; padding: 5rem 2rem; background: var(--accent-light); border-top: var(--sketch-border); }
+.cta-section h2 { font-family: 'Caveat', cursive; font-size: 3rem; margin-bottom: 1rem; }
+.cta-section p { font-family: 'Patrick Hand', cursive; font-size: 1.3rem; color: #555; margin-bottom: 2rem; }
+footer { text-align: center; padding: 2rem; border-top: var(--sketch-border); font-family: 'Patrick Hand', cursive; color: #888; font-size: 1rem; }
+.footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 0.75rem; }
+.footer-links a { color: #888; text-decoration: none; }
+.footer-links a:hover { color: var(--accent); }
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 768px) {
+  nav { padding: 0.75rem 1rem; } .logo { font-size: 1.5rem; } .nav-links { gap: 1rem; } .nav-links a { font-size: 1rem; }
+  .hero { padding: 6rem 1.5rem 3rem; } .hero h1 { font-size: 2.8rem; } section { padding: 3rem 1.5rem; }
+  .pricing-grid { grid-template-columns: 1fr; } .price-card.featured { transform: scale(1); } .trust-grid { gap: 2rem; } .hide-mobile { display: none; }
+}
+</style>
+</head>
+<body>
+<svg class="doodle-bg" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="doodles" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse"><g transform="translate(30,30) rotate(-15)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><path d="M0,10 L20,0 L40,10 M20,0 L20,30 M10,25 L20,20 L30,25"/></g><g transform="translate(180,50)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><rect x="0" y="0" width="24" height="32" rx="2"/><circle cx="12" cy="14" r="6"/><line x1="6" y1="26" x2="18" y2="26"/></g><g transform="translate(320,80)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><rect x="0" y="6" width="28" height="22" rx="3"/><path d="M8,6 L8,2 Q8,0 10,0 L18,0 Q20,0 20,2 L20,6"/><line x1="14" y1="12" x2="14" y2="22"/></g><g transform="translate(80,180)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><circle cx="15" cy="15" r="14"/><ellipse cx="15" cy="15" rx="6" ry="14"/><line x1="1" y1="15" x2="29" y2="15"/><path d="M3,8 Q15,5 27,8"/><path d="M3,22 Q15,25 27,22"/></g><g transform="translate(250,160)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><rect x="0" y="6" width="30" height="20" rx="3"/><circle cx="15" cy="16" r="6"/><path d="M10,6 L12,2 L18,2 L20,6"/></g><g transform="translate(60,300)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><circle cx="16" cy="16" r="14" stroke-dasharray="3,2"/><text x="16" y="14" text-anchor="middle" font-size="7" fill="#2a2a2a" font-family="Patrick Hand">VISA</text><text x="16" y="22" text-anchor="middle" font-size="5" fill="#2a2a2a" font-family="Patrick Hand">APPROVED</text></g><g transform="translate(340,260)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><path d="M12,0 C5,0 0,5 0,11 C0,20 12,30 12,30 C12,30 24,20 24,11 C24,5 19,0 12,0Z"/><circle cx="12" cy="11" r="4"/></g><g transform="translate(200,320)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><circle cx="14" cy="14" r="13"/><polygon points="14,3 17,14 14,12 11,14" fill="#2a2a2a" opacity="0.3"/><polygon points="14,25 11,14 14,16 17,14"/><text x="14" y="-1" text-anchor="middle" font-size="6" fill="#2a2a2a">N</text></g><g transform="translate(140,260)" stroke="#2a2a2a" fill="none" stroke-width="1.5"><line x1="12" y1="35" x2="12" y2="12"/><path d="M12,12 Q5,5 0,8"/><path d="M12,12 Q19,5 24,8"/><path d="M12,12 Q3,10 1,15"/><path d="M12,12 Q21,10 23,15"/><path d="M12,12 Q12,3 12,5"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#doodles)"/></svg>
+<div class="notebook-lines"></div>
+<div class="content">
+<nav><a href="#" class="logo">Visa<span>Cepat</span></a><ul class="nav-links"><li><a href="#how" class="hide-mobile">Cara Kerja</a></li><li><a href="#countries" class="hide-mobile">Negara</a></li><li><a href="#pricing">Harga</a></li><li><a href="https://wa.me/6594336528" class="nav-cta">Chat WhatsApp</a></li></ul></nav>
+<section class="hero"><div class="hero-content"><h1>Urus Visa<br><span class="highlight">Tanpa Ribet</span></h1><p>Layanan konsultasi visa untuk WNI.<br>Cukup chat via WhatsApp, dokumen kami bantu urus sampai selesai.</p><a href="https://wa.me/6594336528" class="hero-cta"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Chat Sekarang</a></div></section>
+<section class="steps-section" id="how"><div class="section-header"><h2 class="section-title fade-up">Cara Kerja</h2><p class="section-subtitle fade-up">Semudah chat sama teman</p></div><div class="steps-grid"><div class="step-card fade-up"><div class="step-num">1</div><div class="step-icon">💬</div><h3>Chat WhatsApp</h3><p>Hubungi kami via WhatsApp. Ceritakan tujuan negara dan tanggal perjalanan kamu.</p></div><div class="step-card fade-up"><div class="step-num">2</div><div class="step-icon">📋</div><h3>Terima Checklist</h3><p>Kami kirimkan daftar dokumen yang diperlukan sesuai negara tujuan kamu.</p></div><div class="step-card fade-up"><div class="step-num">3</div><div class="step-icon">📎</div><h3>Kirim Dokumen</h3><p>Foto dan kirim dokumen langsung via WhatsApp. Kami review dan cek kelengkapannya.</p></div><div class="step-card fade-up"><div class="step-num">4</div><div class="step-icon">✈️</div><h3>Visa Selesai!</h3><p>Kami submit aplikasi ke kedutaan. Tinggal tunggu visa kamu jadi.</p></div></div></section>
+<section class="countries-section" id="countries"><div class="section-header"><h2 class="section-title fade-up">Negara yang Kami Layani</h2><p class="section-subtitle fade-up">21 negara dan terus bertambah</p></div><div class="country-grid fade-up"><div class="country-tag"><span class="flag">🇯🇵</span>Jepang</div><div class="country-tag"><span class="flag">🇰🇷</span>Korea Selatan</div><div class="country-tag"><span class="flag">🇦🇺</span>Australia</div><div class="country-tag"><span class="flag">🇺🇸</span>Amerika</div><div class="country-tag"><span class="flag">🇬🇧</span>Inggris</div><div class="country-tag"><span class="flag">🇨🇦</span>Kanada</div><div class="country-tag"><span class="flag">🇫🇷</span>Prancis</div><div class="country-tag"><span class="flag">🇩🇪</span>Jerman</div><div class="country-tag"><span class="flag">🇮🇹</span>Italia</div><div class="country-tag"><span class="flag">🇪🇸</span>Spanyol</div><div class="country-tag"><span class="flag">🇳🇱</span>Belanda</div><div class="country-tag"><span class="flag">🇨🇭</span>Swiss</div><div class="country-tag"><span class="flag">🇦🇹</span>Austria</div><div class="country-tag"><span class="flag">🇩🇰</span>Denmark</div><div class="country-tag"><span class="flag">🇳🇴</span>Norwegia</div><div class="country-tag"><span class="flag">🇭🇺</span>Hungaria</div><div class="country-tag"><span class="flag">🇨🇳</span>China</div><div class="country-tag"><span class="flag">🇮🇳</span>India</div><div class="country-tag"><span class="flag">🇳🇿</span>Selandia Baru</div><div class="country-tag"><span class="flag">🇹🇼</span>Taiwan</div><div class="country-tag"><span class="flag">🇦🇪</span>UAE</div></div></section>
+<section class="pricing-section" id="pricing"><div class="section-header"><h2 class="section-title fade-up">Harga Layanan</h2><p class="section-subtitle fade-up">Transparan, tanpa biaya tersembunyi</p></div><div class="pricing-grid"><div class="price-card fade-up"><h3>🇯🇵 Jepang</h3><div class="price-amount">Rp 1.250.000 <small>/orang</small></div><ul class="price-features"><li>Konsultasi dokumen lengkap</li><li>Review & pengecekan berkas</li><li>Pengajuan ke kedutaan</li><li>Single entry tourist visa</li><li>Proses 6-8 hari kerja</li></ul><a href="https://wa.me/6594336528?text=Halo%2C%20saya%20mau%20apply%20visa%20Jepang" class="price-btn">Chat Sekarang</a></div><div class="price-card featured fade-up"><h3>🇰🇷 Korea Selatan</h3><div class="price-amount">Rp 1.500.000 <small>/orang</small></div><ul class="price-features"><li>Konsultasi dokumen lengkap</li><li>Review & pengecekan berkas</li><li>Pengajuan ke kedutaan</li><li>Single entry tourist visa</li><li>Proses 6-8 hari kerja</li></ul><a href="https://wa.me/6594336528?text=Halo%2C%20saya%20mau%20apply%20visa%20Korea" class="price-btn">Chat Sekarang</a></div><div class="price-card fade-up"><h3>🇪🇺 Schengen</h3><div class="price-amount">Rp 2.200.000 <small>/orang</small></div><ul class="price-features"><li>Konsultasi dokumen lengkap</li><li>Review & pengecekan berkas</li><li>Booking appointment VFS</li><li>Short-stay Schengen visa</li><li>Proses 10-15 hari kerja</li></ul><a href="https://wa.me/6594336528?text=Halo%2C%20saya%20mau%20apply%20visa%20Schengen" class="price-btn">Chat Sekarang</a></div></div></section>
+<section class="trust-section fade-up"><div class="trust-grid"><div class="trust-item"><div class="trust-num">21</div><div class="trust-label">Negara Dilayani</div></div><div class="trust-item"><div class="trust-num">24/7</div><div class="trust-label">Respon WhatsApp</div></div><div class="trust-item"><div class="trust-num">100%</div><div class="trust-label">Online Process</div></div></div></section>
+<section class="faq-section" id="faq"><div class="section-header"><h2 class="section-title fade-up">FAQ</h2><p class="section-subtitle fade-up">Pertanyaan yang sering ditanyakan</p></div><div class="faq-item fade-up"><div class="faq-question">Apakah visa pasti disetujui?</div><div class="faq-answer">Keputusan visa sepenuhnya ada di kedutaan. Kami membantu mempersiapkan dokumen agar peluang approval lebih besar, tapi tidak bisa menjamin 100% approval.</div></div><div class="faq-item fade-up"><div class="faq-question">Berapa lama proses visa?</div><div class="faq-answer">Tergantung negara tujuan. Jepang & Korea biasanya 6-8 hari kerja, Schengen 10-15 hari kerja, Australia & US bisa 2-4 minggu. Kami sarankan apply minimal 1 bulan sebelum keberangkatan.</div></div><div class="faq-item fade-up"><div class="faq-question">Dokumen apa saja yang diperlukan?</div><div class="faq-answer">Setiap negara berbeda, tapi umumnya: paspor, foto, rekening koran 3 bulan, surat referensi bank, KTP, dan kartu keluarga. Setelah chat, kami akan kirimkan checklist lengkap sesuai negara tujuan.</div></div><div class="faq-item fade-up"><div class="faq-question">Biaya sudah termasuk apa saja?</div><div class="faq-answer">Biaya termasuk konsultasi, review dokumen, dan pengajuan ke kedutaan. Biaya visa kedutaan dibayar terpisah langsung ke kedutaan/VFS saat appointment.</div></div><div class="faq-item fade-up"><div class="faq-question">Bisa bayar pakai apa?</div><div class="faq-answer">Transfer bank (BCA, Mandiri, BNI, BRI), e-wallet (OVO, GoPay, Dana), atau kartu kredit.</div></div></section>
+<section class="cta-section"><h2 class="fade-up">Siap Urus Visa?</h2><p class="fade-up">Chat kami sekarang, gratis konsultasi awal!</p><a href="https://wa.me/6594336528" class="hero-cta fade-up"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Chat WhatsApp Sekarang</a></section>
+<footer><p style="font-family: 'Caveat', cursive; font-size: 1.3rem;">Visa<span style="color: var(--accent);">Cepat</span></p><div class="footer-links"><a href="#">Terms</a><a href="#">Privacy</a><a href="https://wa.me/6594336528">WhatsApp</a></div><p style="margin-top: 1rem; font-size: 0.85rem;">&copy; 2026 Visa Cepat. All rights reserved.</p></footer>
+</div>
+<script>
+document.querySelectorAll('.faq-question').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement;document.querySelectorAll('.faq-item').forEach(i=>{if(i!==item)i.classList.remove('open')});item.classList.toggle('open')})});
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.15});document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
